@@ -1,8 +1,17 @@
 package courier;
 
 public class OrderItem {
+
     private OrderItemType type;
     private int cost; // Negative for discounts
+
+    public OrderItemType getType() {
+        return type;
+    }
+
+    public int getCost() {
+        return cost;
+    }
 
     public OrderItem(OrderItemType type, int cost) {
         this.type = type;

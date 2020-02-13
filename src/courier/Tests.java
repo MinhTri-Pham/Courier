@@ -54,4 +54,8 @@ public class Tests {
         Assert.assertEquals(56,Main.processOrder(parcels,false));
         Assert.assertEquals(112,Main.processOrder(parcels,true));
     }
+
+    // Would write more tests for 5th task if I had time
+    // Given example
+    // Mix of different types, sometimes at least 3 mediums and/or 4 small
 }
