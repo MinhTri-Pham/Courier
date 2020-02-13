@@ -1,3 +1,5 @@
+package courier;
+
 public class Parcel {
 
     private ParcelType type;
@@ -34,7 +36,7 @@ public class Parcel {
         int ordinaryWeightPenalty = 2;
         int overWeightPenalty = 1;
         if (type == ParcelType.Small) {
-            return 3 + Math.max(0,weight - 1) * ordinaryWeightPenalty;
+            return 3 + Math.max(0, weight - 1) * ordinaryWeightPenalty;
         }
         else if (type == ParcelType.Medium) {
             return 8 + Math.max(0,weight - 3) * ordinaryWeightPenalty;

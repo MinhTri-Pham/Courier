@@ -1,13 +1,16 @@
+package courier;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
 
-    // Main function which prepares output and computes cost
-    private static void processOrder(List<Parcel> parcels, boolean speedy) {
+    // courier.Main function which prepares output and computes cost
+    // Returns the total cost
+    public static int processOrder(List<Parcel> parcels, boolean speedy) {
         if (parcels.size() == 0) {
             System.out.println("Total cost: 0$");
-            return;
+            return 0;
         }
         int totalPrice = 0;
         List<OrderItem> orderedItems = new ArrayList<>(); // List of ordered items
@@ -43,6 +46,8 @@ public class Main {
         // Print out the output
         printOrderedItems(orderedItems);
         System.out.println("Total cost: $" + totalPrice);
+        System.out.println();
+        return totalPrice;
 
     }
 
@@ -51,19 +56,4 @@ public class Main {
             System.out.println(ordItem.toString());
         }
     }
-
-    // For testing
-    public static void main(String[] args) {
-        Parcel p1 = new Parcel(20,50,20,4);
-        Parcel p2 = new Parcel(20,50,40, 7);
-        List<Parcel> parcels = new ArrayList<>();
-        parcels.add(p1);
-        parcels.add(p2);
-        // Compare difference between with and without speedy shipping
-        processOrder(parcels, true);
-        System.out.println();
-        processOrder(parcels, false);
-
-    }
-
 }
