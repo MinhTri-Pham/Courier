@@ -1,4 +1,4 @@
 public enum OrderItemType {
 
-    Small, Medium, Large, XL, Speedy
+    Small, Medium, Large, XL, Heavy, Speedy
 }

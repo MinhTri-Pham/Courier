@@ -16,7 +16,7 @@ public class Main {
             // Keep track of total cost
             int cost = parcel.getCost();
             totalPrice += cost;
-            switch (parcel.getSize()) {
+            switch (parcel.getType()) {
                 case Small:
                     orderedItems.add(new OrderItem(OrderItemType.Small, cost));
                     break;
@@ -28,6 +28,9 @@ public class Main {
                     break;
                 case XL:
                     orderedItems.add(new OrderItem(OrderItemType.XL, cost));
+                    break;
+                case Heavy:
+                    orderedItems.add(new OrderItem(OrderItemType.Heavy, cost));
                     break;
             }
         }
@@ -51,11 +54,12 @@ public class Main {
 
     // For testing
     public static void main(String[] args) {
-        Parcel p1 = new Parcel(101,51,92,10);
-        Parcel p2 = new Parcel(200,100,150, 11);
+        Parcel p1 = new Parcel(20,50,20,4);
+        Parcel p2 = new Parcel(20,50,40, 7);
         List<Parcel> parcels = new ArrayList<>();
         parcels.add(p1);
         parcels.add(p2);
+        // Compare difference between with and without speedy shipping
         processOrder(parcels, true);
         System.out.println();
         processOrder(parcels, false);
