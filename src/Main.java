@@ -4,15 +4,19 @@ import java.util.List;
 public class Main {
 
     // Main function which prepares output and computes cost
-    public static void processOrder(List<Parcel> parcels, boolean speedy) {
-        List<OrderItem> orderedItems = new ArrayList<>(); // List of ordered items
+    private static void processOrder(List<Parcel> parcels, boolean speedy) {
+        if (parcels.size() == 0) {
+            System.out.println("Total cost: 0$");
+            return;
+        }
         int totalPrice = 0;
+        List<OrderItem> orderedItems = new ArrayList<>(); // List of ordered items
         for (Parcel parcel : parcels) {
             // Process each parcel and make a new order item based on it
             // Keep track of total cost
             int cost = parcel.getCost();
             totalPrice += cost;
-            switch (parcel.size) {
+            switch (parcel.getSize()) {
                 case Small:
                     orderedItems.add(new OrderItem(OrderItemType.Small, cost));
                     break;
@@ -47,15 +51,11 @@ public class Main {
 
     // For testing
     public static void main(String[] args) {
-        Parcel p1 = new Parcel(1,1,9);
-        Parcel p2 = new Parcel(2,3,1);
-        Parcel p3 = new Parcel(1,51,1);
-        Parcel p4 = new Parcel(101,10,10);
+        Parcel p1 = new Parcel(101,51,92,10);
+        Parcel p2 = new Parcel(200,100,150, 11);
         List<Parcel> parcels = new ArrayList<>();
         parcels.add(p1);
         parcels.add(p2);
-        parcels.add(p3);
-        parcels.add(p4);
         processOrder(parcels, true);
         System.out.println();
         processOrder(parcels, false);
